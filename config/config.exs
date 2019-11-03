@@ -15,7 +15,8 @@ config :live_table, LiveTableWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "H7qU9IzwWaimUEGKNRaUko2vWSr/QWf44yuz1yMfBdZAjdCB7+ViL/6OPU0U/z+l",
   render_errors: [view: LiveTableWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: LiveTable.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: LiveTable.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "HnM5P8046Wtr+5UP3VBH07d+HKGm2CykSommPoDurBQX7pj7m7RVHdctVxFg3aib"]
 
 # Configures Elixir's Logger
 config :logger, :console,
