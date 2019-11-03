@@ -20,4 +20,24 @@ defmodule LiveTable.Orders.Company do
     |> cast(attrs, [:name, :address, :city, :state, :phone, :website])
     |> validate_required([:name, :address, :city, :state, :phone, :website])
   end
+
+  alias Faker.Pizza
+  alias Faker.Address.En, as: Address
+  alias Faker.Internet
+  alias Faker.Phone.EnUs, as: Phone
+
+  def fixture(_) do
+    inserted_at = DateTime.utc_now()
+
+    %{
+      name: Pizza.company(),
+      address: Address.street_address(),
+      city: Address.city(),
+      state: Address.state_abbr(),
+      phone: Phone.phone(),
+      website: Internet.url(),
+      inserted_at: inserted_at,
+      updated_at: inserted_at
+    }
+  end
 end

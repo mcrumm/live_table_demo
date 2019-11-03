@@ -9,3 +9,12 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+require Logger
+
+alias LiveTable.Seeds
+alias LiveTable.Orders.Company
+
+chunk_size = 3_500
+
+_ = Seeds.insert_list(250_000, Company, chunk_size: chunk_size)
