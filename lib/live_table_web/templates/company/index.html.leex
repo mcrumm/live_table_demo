@@ -14,6 +14,7 @@
   <tbody>
     <%= for entry <- @page.entries do %>
       <tr>
+        <td><%= entry.id %></td>
         <td><%= entry.name %></td>
         <td><%= entry.address %></td>
         <td><%= entry.city %></td>
@@ -24,6 +25,13 @@
     <% end %>
   </tbody>
   <tfoot>
-    <td colspan="6"><%= pagination_links(@socket, @page, action: LiveTableWeb.CompaniesLive) %></td>
+    <tr>
+      <td colspan="3" align="left">
+        <%= page_summary(@page) %>
+      </td>
+      <td colspan="4">
+        <%= pagination_links(@socket, @page, action: LiveTableWeb.CompaniesLive) %>
+      </td>
+    </tr>
   </tfoot>
 </table>
