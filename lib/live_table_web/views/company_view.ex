@@ -1,12 +1,13 @@
 defmodule LiveTableWeb.CompanyView do
   use LiveTableWeb, :view
   use Scrivener.HTML
-  alias Scrivener.Page
+  alias LiveTableWeb.CompaniesLive
 
-  def page_summary(%Page{} = page) do
-    %{page_number: num, page_size: size, total_entries: total} = page
+  def page_summary(%{page_number: num, page_size: size, total_entries: total}) do
     page_summary(num, size, total)
   end
+
+  def page_summary(_), do: ""
 
   defp page_summary(1, size, total) do
     "Showing 1 to #{size} of #{total} entries"

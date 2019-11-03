@@ -30,7 +30,7 @@
         <%= page_summary(@page) %>
       </td>
       <td colspan="4">
-        <%= pagination_links(@socket, @page, action: LiveTableWeb.CompaniesLive) %>
+        <%= pagination_links(@socket, @page, [action: CompaniesLive] ++ @params) %>
       </td>
     </tr>
   </tfoot>
