@@ -20,7 +20,7 @@ defmodule LiveTableWeb.Router do
 
     get "/", PageController, :index
 
-    live "/companies", CompaniesLive
+    live "/companies", CompaniesLive, as: :company
   end
 
   # Other scopes may use custom stacks.

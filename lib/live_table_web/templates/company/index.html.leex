@@ -23,4 +23,7 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <td colspan="6"><%= pagination_links(@socket, @page, action: LiveTableWeb.CompaniesLive) %></td>
+  </tfoot>
 </table>

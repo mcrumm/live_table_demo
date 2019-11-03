@@ -22,18 +22,16 @@ defmodule LiveTable.Orders do
   end
 
   @doc """
-  Returns the list of companies.
-
-  The list will be paginated
+  Returns a `t:Scrivener.Page.t/0` for a `LiveTable.Orders.Company` query.
 
   ## Examples
 
-      iex> paginate_companies()
+      iex> search_companies()
       [%Company{}, ...]
-
   """
-  def paginate_companies(opts \\ []) do
-    Repo.paginate(Company, opts)
+  @spec search_companies(params :: map | keyword) :: Scrivener.Page.t()
+  def search_companies(params \\ []) do
+    Repo.paginate(Company, params)
   end
 
   @doc """
