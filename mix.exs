@@ -40,9 +40,16 @@ defmodule LiveTable.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_view, "~> 0.3.1"},
+      {:inquisitor, "~> 0.5.0"},
+      {:inquisitor_jsonapi, "~> 0.1.0"},
+      {:scrivener, "~> 2.7.0"},
+      {:scrivener_ecto, "~> 2.2.0"},
+      {:scrivener_html, "~> 1.8.1"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:faker, "~> 0.13.0", only: [:dev, :test]}
     ]
   end
 
