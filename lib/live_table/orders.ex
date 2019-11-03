@@ -31,7 +31,9 @@ defmodule LiveTable.Orders do
   """
   @spec search_companies(params :: map | keyword) :: Scrivener.Page.t()
   def search_companies(params \\ []) do
-    Repo.paginate(Company, params)
+    Company
+    |> order_by([c], asc: c.id)
+    |> Repo.paginate(params)
   end
 
   @doc """
