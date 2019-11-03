@@ -1,5 +1,6 @@
 defmodule LiveTableWeb.Router do
   use LiveTableWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -18,6 +19,8 @@ defmodule LiveTableWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "/companies", CompaniesLive
   end
 
   # Other scopes may use custom stacks.

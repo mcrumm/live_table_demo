@@ -22,6 +22,21 @@ defmodule LiveTable.Orders do
   end
 
   @doc """
+  Returns the list of companies.
+
+  The list will be paginated
+
+  ## Examples
+
+      iex> paginate_companies()
+      [%Company{}, ...]
+
+  """
+  def paginate_companies(opts \\ []) do
+    Repo.paginate(Company, opts)
+  end
+
+  @doc """
   Gets a single company.
 
   Raises `Ecto.NoResultsError` if the Company does not exist.

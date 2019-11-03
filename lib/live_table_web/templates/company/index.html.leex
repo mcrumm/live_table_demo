@@ -1,0 +1,26 @@
+<h1>Listing Companies</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Phone</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for entry <- @page.entries do %>
+      <tr>
+        <td><%= entry.name %></td>
+        <td><%= entry.address %></td>
+        <td><%= entry.city %></td>
+        <td><%= entry.state %></td>
+        <td><%= entry.phone %></td>
+        <td><%= entry.website %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
