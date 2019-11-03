@@ -7,6 +7,7 @@ defmodule LiveTable.Orders do
   alias LiveTable.Repo
 
   alias LiveTable.Orders.Company
+  alias LiveTable.Orders.CompanyQuery
 
   @doc """
   Returns the list of companies.
@@ -30,10 +31,8 @@ defmodule LiveTable.Orders do
       [%Company{}, ...]
   """
   @spec search_companies(params :: map | keyword) :: Scrivener.Page.t()
-  def search_companies(params \\ []) do
-    Company
-    |> order_by([c], asc: c.id)
-    |> Repo.paginate(params)
+  def search_companies(params, context \\ nil) do
+    Repo.search(CompanyQuery, Company, context, params)
   end
 
   @doc """
