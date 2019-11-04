@@ -3,12 +3,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Phone</th>
-      <th>URL</th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "id", "ID") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "name", "Name") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "address", "Address") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "city", "City") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "state", "State") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "phone", "Phone") %></th>
+      <th><%= live_sort(@socket, CompaniesLive, @page, @params, "website", "URL") %></th>
     </tr>
   </thead>
   <tbody>
