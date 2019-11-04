@@ -1,4 +1,4 @@
-# LiveTable
+# LiveTable Demo
 
 To start your Phoenix server:
 
@@ -8,6 +8,8 @@ To start your Phoenix server:
   * Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+<img width="429" alt="Screen Shot 2019-11-04 at 12 35 02 PM" src="https://user-images.githubusercontent.com/168677/68156130-0de97f80-ff00-11e9-9ab3-4491101abcee.png">
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
