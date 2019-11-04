@@ -11,6 +11,15 @@
       <%= ldt_sort("Phone", @socket, CompaniesLive, @page, @params) %>
       <%= ldt_sort("URL", @socket, CompaniesLive, @page, @params, field: "website") %>
     </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <th><input type="text" phx-keydown="filter-name" phx-debounce="500" /></th>
+        <th>&nbsp;</th>
+        <th><input type="text" phx-keydown="filter-city" phx-debounce="500" /></th>
+        <th><input type="text" phx-keydown="filter-state" phx-debounce="500" /></th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
   </thead>
   <tbody>
     <%= for entry <- @page.entries do %>
