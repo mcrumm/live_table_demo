@@ -21,7 +21,7 @@ defmodule LiveTable.Orders.Company do
     |> validate_required([:name, :address, :city, :state, :phone, :website])
   end
 
-  alias Faker.Pizza
+  alias Faker.Company.En, as: Company
   alias Faker.Address.En, as: Address
   alias Faker.Internet
   alias Faker.Phone.EnUs, as: Phone
@@ -30,7 +30,7 @@ defmodule LiveTable.Orders.Company do
     inserted_at = DateTime.utc_now()
 
     %{
-      name: Pizza.company(),
+      name: Company.name(),
       address: Address.street_address(),
       city: Address.city(),
       state: Address.state_abbr(),
