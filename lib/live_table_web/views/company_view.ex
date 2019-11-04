@@ -4,17 +4,28 @@ defmodule LiveTableWeb.CompanyView do
   import Phoenix.LiveView, only: [live_link: 2]
   alias LiveTableWeb.CompaniesLive
 
-  def live_sort(socket, CompaniesLive, %{page_number: page}, params, field, text) do
-    sort =
+  def ldt_sort(text, conn, action, %{page_number: page}, params, opts \\ [])
+      when is_binary(text) do
+    field = opts[:field] || String.downcase(text)
+
+    {sort, sorting} =
       case params[:sort] do
-        ^field -> "-#{field}"
-        _ -> field
+        ^field -> {"-#{field}", "sorting_asc"}
+        <<"-"::binary, ^field::binary>> -> {field, "sorting_desc"}
+        other -> default_sort(other, opts[:default], field)
       end
 
-    params = [sort: sort, page: page] ++ params
+    # TODO: Handle dynamic paths, a la Scrivener.HTML
+    path_params = [sort: sort, page: page] ++ params
+    path = Routes.company_path(conn, action, path_params)
 
-    live_link(text, to: Routes.company_path(socket, CompaniesLive, params))
+    content_tag(:th, live_link(text, to: path), class: sorting)
   end
+
+  defp default_sort(params, default, field)
+  defp default_sort(nil, :asc, field), do: {"-#{field}", "sorting_asc"}
+  defp default_sort(nil, :desc, field), do: {field, "sorting_desc"}
+  defp default_sort(_, _, field), do: {field, "sorting"}
 
   def page_summary(%{page_number: num, page_size: size, total_entries: total}) do
     page_summary(num, size, total)
