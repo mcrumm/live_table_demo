@@ -45,12 +45,13 @@ defmodule LiveTable.MixProject do
       {:inquisitor_jsonapi, "~> 0.1.0"},
       {:scrivener, "~> 2.7.0"},
       {:scrivener_ecto, "~> 2.2.0"},
-      {:scrivener_html, github: "mcrumm/scrivener_html", branch: "live-link-support", override: true},
+      {:scrivener_html,
+       github: "mcrumm/scrivener_html", branch: "live-link-support", override: true},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:floki, ">= 0.0.0", only: :test},
-      {:faker, "~> 0.13.0", only: [:dev, :test]}
+      {:faker, "~> 0.13.0"}
     ]
   end
 
